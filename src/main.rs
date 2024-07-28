@@ -61,7 +61,7 @@ fn main() {
         );
 
         if let Err(e) = stream.write_all(response.as_bytes()) {
-            eprintln!("Failed to write to stream: {}", e);
+            eprintln!("Failed to write to streamx: {}", e);
         }
 
         if let Err(e) = stream.flush() {
