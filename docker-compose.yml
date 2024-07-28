@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   web:
-    image: rustsimplewebserverirackson.azurecr.io/myrustwebapp:latest
+    image: myrustwebapp:latest
+    build: .
     ports:
       - "3000:3000"

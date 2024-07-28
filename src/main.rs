@@ -2,9 +2,9 @@ use std::io::{Read, Write};
 use std::net::TcpListener;
 
 fn main() {
-    // Bind the TCP listener to local address, port 3000
-    let listener = TcpListener::bind("127.0.0.1:3000").unwrap();
-    println!("Listening on http://127.0.0.1:3000");
+    // Bind the TCP listener to all network interfaces, port 3000
+    let listener = TcpListener::bind("0.0.0.0:3000").unwrap();
+    println!("Listening on http://0.0.0.0:3000");
 
     // Accept incoming connections in a loop
     for stream in listener.incoming() {
@@ -61,7 +61,7 @@ fn main() {
         );
 
         if let Err(e) = stream.write_all(response.as_bytes()) {
-            eprintln!("Failed to write to streamx: {}", e);
+            eprintln!("Failed to write to stream: {}", e);
         }
 
         if let Err(e) = stream.flush() {
