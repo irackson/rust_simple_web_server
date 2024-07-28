@@ -7,17 +7,14 @@ WORKDIR /usr/src/app
 # Copy the Cargo.toml and Cargo.lock files
 COPY Cargo.toml Cargo.lock ./
 
-# Build dependencies
-RUN cargo build --release
-
 # Copy the source code
-COPY . .
+COPY src ./src
 
 # Build the project
-RUN cargo install --path .
+RUN cargo build --release
 
 # Run the application
-CMD ["your_project_name"]
+CMD ["./target/release/myrustwebapp"]
 
 # Expose the port
 EXPOSE 3000
