@@ -1,7 +1,7 @@
 # Use the official Rust image as the base image
 FROM rust:latest
 
-# Create a new directory for the app
+# Set the working directory
 WORKDIR /usr/src/app
 
 # Copy the Cargo.toml and Cargo.lock files
@@ -13,8 +13,8 @@ COPY src ./src
 # Build the project
 RUN cargo build --release
 
-# Run the application
-CMD ["./target/release/myrustwebapp"]
-
 # Expose the port
 EXPOSE 3000
+
+# Run the application
+CMD ["./target/release/myrustwebapp"]
